@@ -5,28 +5,9 @@ import Constants from 'expo-constants'
 import theme from '../theme.js'
 import { Link, useLocation } from 'react-router-native'
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.appBar.primary,
-    flexDirection: 'row',
-    paddingTop: Constants.statusBarHeight + 10
-  },
-  scroll: {
-    paddingBottom: 15
-  },
-  text: {
-    color: theme.appBar.textSecondary,
-    paddingHorizontal: 10
-  },
-  active: {
-    color: theme.appBar.textPrimary
-  }
-})
-
 const AppBarTab = ({ children, to }) => {
   const { pathname } = useLocation()
   const active = pathname === to
-
   const textStyles = [
     styles.text,
     active && styles.active
@@ -52,4 +33,21 @@ const AppBar = () => {
   )
 }
 
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: theme.appBar.primary,
+    flexDirection: 'row',
+    paddingTop: Constants.statusBarHeight + 10
+  },
+  scroll: {
+    paddingBottom: 15
+  },
+  text: {
+    color: theme.appBar.textSecondary,
+    paddingHorizontal: 10
+  },
+  active: {
+    color: theme.appBar.textPrimary
+  }
+})
 export default AppBar
