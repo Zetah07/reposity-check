@@ -1,13 +1,14 @@
-import React from 'react';
-import { View } from 'react-native';
-import Main from './src/components/Main';
+import React from 'react'
+import Main from './src/components/Main.jsx'
+import { NativeRouter } from 'react-router-native'
+import { View } from 'react-native'
 
-export default function App() {
+const App = () => {
   return (
-    <View  >
-      <Main />
+    <View>
+      <NativeRouter><Main /></NativeRouter>
     </View>
-  );
+  )
 }
 
-
+export default App

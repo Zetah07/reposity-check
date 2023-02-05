@@ -1,27 +1,18 @@
-import React from "react";
-import { FlatList, View, StyleSheet } from "react-native";
-import repositories from "../data/repositories.js";
-import RepositoryItem from "./RepositoryItem.jsx";
+import React from 'react'
+import { FlatList, Text } from 'react-native'
+import repositories from '../data/repositories.js'
+import RepositoryItem from './RepositoryItem.jsx'
 
 const RepositoryList = () => {
   return (
     <FlatList
       data={repositories}
-      ItemSeparatorComponent={
-        () => <View style={styles.container} />
-      }
+      ItemSeparatorComponent={() => <Text> </Text>}
       renderItem={({ item: repo }) => (
-       <RepositoryItem {...repo}/>
+        <RepositoryItem {...repo} />
       )}
-    ></FlatList>
-  );
-};
+    />
+  )
+}
 
-const styles = StyleSheet.create({
-    container: {
-        height: 10,
-        backgroundColor: "white"
-    }
-})
-
-export default RepositoryList;
+export default RepositoryList

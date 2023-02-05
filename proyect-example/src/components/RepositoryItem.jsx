@@ -1,50 +1,48 @@
-import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-import StyledText from "./StyledText";
-import RepositoryStats from "./ReposityStats";
-import theme from "../theme";
+import React from 'react'
+import { Image, View, StyleSheet } from 'react-native'
+import StyledText from './StyledText.jsx'
+import RepositoryStats from './RepositoryStats.jsx'
+import theme from '../theme.js'
 
-const RepositoryItemHeader = ({ownerAvatarUrl, fullName, description, language}) => (
-    <View>
-      <Image style={styles.img} source={{ uri: ownerAvatarUrl }} />
-      <StyledText fontSize="subheading" fontWeight="bold" color="primary">
-        FullName: {fullName}{" "}
-      </StyledText>
-      <StyledText>Description: {description} </StyledText>
-      <StyledText style={styles.language}>Language: {language} </StyledText>
+const RepositoryItemHeader = ({ ownerAvatarUrl, fullName, description, language }) => (
+  <View style={{ flexDirection: 'row', paddingBottom: 2 }}>
+    <View style={{ paddingRight: 10 }}>
+      <Image style={styles.image} source={{ uri: ownerAvatarUrl }} />
     </View>
-  );
+    <View style={{ flex: 1 }}>
+      <StyledText fontWeight='bold'>{fullName}</StyledText>
+      <StyledText color='secondary'>{description}</StyledText>
+      <StyledText style={styles.language}>{language}</StyledText>
+    </View>
+  </View>
+)
 
 const RepositoryItem = (props) => (
   <View key={props.id} style={styles.container}>
     <RepositoryItemHeader {...props} />
     <RepositoryStats {...props} />
   </View>
-);
+)
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
-    padding: 10,
-    margin: 10,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: "black",
+    padding: 20,
+    paddingVertical: 5
   },
-  language:{
-        padding:4,
-        backgroundColor: theme.colors.primary,
-        color: theme.colors.white,
-        borderRadius: 5,
-        alignSelf: "flex-start",
-        overflow:'hidden',
-    },
-    img:{
-        width: 50,
-        height: 50,
-        borderRadius: 5,
-    }
-  
-});
+  language: {
+    padding: 4,
+    color: theme.colors.white,
+    backgroundColor: theme.colors.primary,
+    alignSelf: 'flex-start',
+    marginVertical: 4,
+    borderRadius: 4,
+    overflow: 'hidden'
+  },
+  image: {
+    width: 48,
+    height: 48,
+    borderRadius: 4
+  }
+})
 
-export default RepositoryItem;
+export default RepositoryItem
