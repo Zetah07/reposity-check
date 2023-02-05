@@ -4,14 +4,14 @@ import StyledText from "./StyledText";
 import RepositoryStats from "./ReposityStats";
 import theme from "../theme";
 
-const RepositoryItemHeader = (props) => (
+const RepositoryItemHeader = ({ownerAvatarUrl, fullName, description, language}) => (
     <View>
-      <Image style={styles.img} source={{ uri: props.ownerAvatarUrl }} />
+      <Image style={styles.img} source={{ uri: ownerAvatarUrl }} />
       <StyledText fontSize="subheading" fontWeight="bold" color="primary">
-        FullName: {props.fullName}{" "}
+        FullName: {fullName}{" "}
       </StyledText>
-      <StyledText>Description: {props.description} </StyledText>
-      <StyledText style={styles.lenguage}>Language: {props.language} </StyledText>
+      <StyledText>Description: {description} </StyledText>
+      <StyledText style={styles.language}>Language: {language} </StyledText>
     </View>
   );
 
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "black",
   },
-    lenguage:{
+  language:{
         padding:4,
         backgroundColor: theme.colors.primary,
         color: theme.colors.white,
